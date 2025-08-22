@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+font-family: 'Montserrat', sans-serif;  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* space between logo, middle, icons */
+  gap: 16px;
+  padding: 10px 20px;
+
+  background: #fff; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===== LOGO ===== */
+.navbar-logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  height: 50px;
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px; /* main brand size */
+  font-weight: 700;
+  color: #3d4a57;
+  line-height: 1.0; /* more breathing room */
+}
+
+.logo-subtext {
+  font-size: 12px; /* smaller tagline */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f29cab;
+  margin-top: 2px;
+}
+
+
+/* ===== CATEGORIES BUTTON ===== */
+/* ===== CATEGORIES BUTTON MODERN STYLE ===== */
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  height: 48px; /* match search bar height */
+  border-radius: 50px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.categories:hover {
+  background: #f7f7f7;
+  border-color: #ccc;
+}
+
+.categories i {
+  font-size: 14px;
+  color: #444;
+}
+
+
+/* ===== SEARCH BAR ===== */
+/* ===== SEARCH BAR EXACTLY LIKE SCREENSHOT ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #eeeeee;
+  border-radius: 50px;
+  padding: 0 6px 0 20px;
+  width: 100%;
+  max-width: 350px;
+  height: 48px;
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: #2d2d2d;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+/* BUTTON */
+.search-bar button {
+  position: relative;
+  overflow: hidden;
+  background: #fff;      /* default white circle */
+  color: #000;           /* icon inherits this */
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 0;            /* create stacking context */
+  transition: color 0.3s ease;
+}
+
+/* make both <i> and SVG sit above the animated layer and inherit color */
+.search-bar button i,
+.search-bar button svg {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  color: currentColor;
+  transition: color 0.3s ease;
+}
+
+/* Animated dark layer from bottom to top */
+.search-bar button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0%;
+  background: #242424;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: height 0.35s ease;
+  z-index: 0;
+}
+
+/* Hover states */
+.search-bar button:hover::before { height: 100%; }
+.search-bar button:hover { color: #fff; }
+
+
+
+/* ===== NAV LINKS ===== */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex: 0 0 auto;
+}
+
+.navbar-links a {
+  position: relative; /* required for the underline */
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 4px; /* space for underline */
+}
+
+.navbar-links a::before,
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 8px;   /* size of corner */
+  height: 8px;
+  border: 2px solid #074047;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* top-left corner */
+.navbar-links a::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  transform: translate(-4px, -4px);
+}
+
+/* bottom-right corner */
+.navbar-links a::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  transform: translate(4px, 4px);
+}
+
+.navbar-links a:hover::before,
+.navbar-links a:hover::after {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+
+
+
+/* ===== ICONS ===== */
+.navbar-icons {
+  display: flex;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.icon-circle {
+  position: relative;
+  background: #f1f1f1;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.icon-circle:hover {
+  background: #ddd;
+}
+
+.icon-circle.black {
+  background: #000;
+  color: white;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: black;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.badge.yellow {
+  background: #f5b800;
+  color: black;
+}
