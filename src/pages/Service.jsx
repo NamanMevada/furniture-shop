@@ -1,6 +1,7 @@
 import React from "react";
 import "./Service.css";
 import { FaCouch, FaTruck, FaTools, FaSmile } from "react-icons/fa";
+import myserviceimg from "../assets/carpenter-checking-quality-his-work-carpentry-workshop.jpg";
 
 const Service = () => {
   return (
@@ -70,7 +71,7 @@ const Service = () => {
         </div>
         <div className="why-image">
           <img
-            src="https://images.unsplash.com/photo-1615874959474-d609969a2e60"
+            src={myserviceimg}
             alt="Modern interior service"
           />
         </div>

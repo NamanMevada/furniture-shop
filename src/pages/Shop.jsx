@@ -8,10 +8,14 @@ import product8 from "../assets/minimal-living-room-interior-design-with-leaf-sh
 import product9 from "../assets/interior-design-with-photoframes-plants.jpg";
 import product10 from "../assets/color-year-interior-design-space-with-furniture-decor.jpg"
 
-
+import product11 from "../assets/mid-century-modern-sideboard-with-record-storage.jpg"
+import product12 from "../assets/mid-century-modern-wooden-cabinet-with-pink-doors.jpg" 
+import product13 from "../assets/interior-design-house-modern-wooden-table-chair.jpg"
+import product14 from "../assets/colorful-shot-modern-light-blue-sofa-white-wooden-table.jpg";
+import product15 from "../assets/indoor-with-elegant-wooden-dining-table-chairs.jpg";
 import product2 from "../assets/stylish-cabinet-with-artwork-decor.jpg";
 import product3 from "../assets/stylish-mid-century-modern-dresser-with-green-drawers.jpg";
-import product4 from "../assets/vertical-shot-wooden-chair-white.jpg";
+import product4 from "../assets/minimalist-kitchen-interior-design.jpg";
 import product5 from "../assets/four-person-table-front-window-restaurant.jpg";
 import product6 from "../assets/mid-century-modern-sideboard-with-coral-drawers.jpg";
 
@@ -38,8 +42,8 @@ const Shop = () => {
         { id: 6, name: "Wooden Cabinet", price: "$180", image: product2 },
         { id: 7, name: "Mid-Century Dresser", price: "$300", image: product3, rating: 5 },
         { id: 8, name: "Sideboard with Coral Drawers", price: "$220", image: product6, badge: "New" },
-        { id: 9, name: "Minimalist Shelf", price: "$150", image: product2 },
-        { id: 10, name: "Storage Unit", price: "$250", image: product3 },
+        { id: 9, name: "Minimalist Shelf", price: "$150", image: product11 },
+        { id: 10, name: "Storage Unit", price: "$250", image: product12 },
       ],
     },
     {
@@ -48,9 +52,9 @@ const Shop = () => {
       products: [
         { id: 11, name: "Classic Wooden Chair", price: "$90", image: product4 },
         { id: 12, name: "Dining Table", price: "$250", image: product5, rating: 4.8 },
-        { id: 13, name: "Coffee Table", price: "$120", image: product5 },
-        { id: 14, name: "Side Table", price: "$80", image: product4 },
-        { id: 15, name: "Bar Stool", price: "$70", image: product5 },
+        { id: 13, name: "Coffee Table", price: "$120", image: product13 },
+        { id: 14, name: "Side Table", price: "$80", image: product14 },
+        { id: 15, name: "Bar Stool", price: "$70", image: product15 },
       ],
     },
   ];

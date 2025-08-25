@@ -4,13 +4,18 @@ import "./Product.css";
 import product1 from "../assets/pink-armchair-modern-living-room.jpg";
 import product2 from "../assets/stylish-cabinet-with-artwork-decor.jpg";
 import product3 from "../assets/stylish-mid-century-modern-dresser-with-green-drawers.jpg";
-import product4 from "../assets/vertical-shot-wooden-chair-white.jpg";
+import product4 from "../assets/minimalist-kitchen-interior-design.jpg";
 import product5 from "../assets/four-person-table-front-window-restaurant.jpg";
 import product6 from "../assets/mid-century-modern-sideboard-with-coral-drawers.jpg";
 import product7 from "../assets/comfortable-pillow-sofa.jpg";
 import product8 from "../assets/minimal-living-room-interior-design-with-leaf-shadow-wall.jpg";
 import product9 from "../assets/interior-design-with-photoframes-plants.jpg"; 
 import product10 from "../assets/color-year-interior-design-space-with-furniture-decor.jpg"
+import product11 from "../assets/mid-century-modern-sideboard-with-record-storage.jpg"
+import product12 from "../assets/mid-century-modern-wooden-cabinet-with-pink-doors.jpg" 
+import product13 from "../assets/interior-design-house-modern-wooden-table-chair.jpg"
+import product14 from "../assets/colorful-shot-modern-light-blue-sofa-white-wooden-table.jpg";
+import product15 from "../assets/indoor-with-elegant-wooden-dining-table-chairs.jpg";
 
 const products = [
   { id: 1, name: "Luxury Armchair", price: "$120", image: product1, description: "A comfy luxury armchair perfect for your living room." },
@@ -21,13 +26,13 @@ const products = [
   { id: 6, name: "Wooden Cabinet", price: "$180", image: product2, description: "Classic wooden cabinet with multiple shelves." },
   { id: 7, name: "Mid-Century Dresser", price: "$300", image: product3, description: "Vintage style dresser for storage and decor." },
   { id: 8, name: "Sideboard with Coral Drawers", price: "$220", image: product6, description: "Modern sideboard with colorful drawers." },
-  { id: 9, name: "Minimalist Shelf", price: "$150", image: product2, description: "Simple shelf to organize your space." },
-  { id: 10, name: "Storage Unit", price: "$250", image: product3, description: "Functional storage unit with drawers." },
+  { id: 9, name: "Minimalist Shelf", price: "$150", image: product11, description: "Simple shelf to organize your space." },
+  { id: 10, name: "Storage Unit", price: "$250", image: product12, description: "Functional storage unit with drawers." },
   { id: 11, name: "Classic Wooden Chair", price: "$90", image: product4, description: "Elegant wooden chair for dining or office." },
   { id: 12, name: "Dining Table", price: "$250", image: product5, description: "Sturdy dining table for family meals." },
-  { id: 13, name: "Coffee Table", price: "$120", image: product5, description: "Stylish coffee table for living rooms." },
-  { id: 14, name: "Side Table", price: "$80", image: product4, description: "Compact side table for small spaces." },
-  { id: 15, name: "Bar Stool", price: "$70", image: product5, description: "Modern bar stool for kitchen or bar." },
+  { id: 13, name: "Coffee Table", price: "$120", image: product13, description: "Stylish coffee table for living rooms." },
+  { id: 14, name: "Side Table", price: "$80", image: product14, description: "Compact side table for small spaces." },
+  { id: 15, name: "Bar Stool", price: "$70", image: product15, description: "Modern bar stool for kitchen or bar." },
 ];
 
 const Product = () => {
