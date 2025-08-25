@@ -10,15 +10,17 @@ import product7 from "../assets/comfortable-pillow-sofa.jpg";
 
 import "./Home.css";
 
-import { FaLeaf, FaPuzzlePiece, FaHeart, FaLightbulb, FaStar } from "react-icons/fa";
+import { FaLeaf, FaPuzzlePiece, FaHeart, FaLightbulb } from "react-icons/fa";
 
 const Home = () => {
+  // Create separate refs for the images and text
   const imagesRef = useRef(null);
   const textRef = useRef(null);
 
   useEffect(() => {
+    // The observer callback function
     const observerCallback = (entries) => {
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
         } else {
@@ -27,26 +29,39 @@ const Home = () => {
       });
     };
 
+    // The IntersectionObserver watches multiple targets
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.4,
+      threshold: 0.4, // trigger when 40% visible
     });
 
-    if (imagesRef.current) observer.observe(imagesRef.current);
-    if (textRef.current) observer.observe(textRef.current);
+    // Observe each element separately
+    if (imagesRef.current) {
+      observer.observe(imagesRef.current);
+    }
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
 
+    // Cleanup function
     return () => {
-      if (imagesRef.current) observer.unobserve(imagesRef.current);
-      if (textRef.current) observer.unobserve(textRef.current);
+      if (imagesRef.current) {
+        observer.unobserve(imagesRef.current);
+      }
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
       observer.disconnect();
     };
   }, []);
 
+  // Timer logic
   const calculateTimeLeft = () => {
     const difference = +new Date("2025-12-31T23:59:59") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
       timeLeft = {
+        
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
@@ -67,8 +82,12 @@ const Home = () => {
   });
 
   const timerComponents = [];
+
   Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) return;
+    if (!timeLeft[interval]) {
+      return;
+    }
+
     timerComponents.push(
       <span key={interval} className="timer-unit">
         <span className="timer-value">{timeLeft[interval]}</span>
@@ -76,6 +95,7 @@ const Home = () => {
       </span>
     );
   });
+
 
   return (
     <div>
@@ -86,8 +106,7 @@ const Home = () => {
           <h1>Luxury Furniture for Your Dream Home</h1>
           <p>
             Explore our handpicked selection of timeless pieces that blend
-            elegance, comfort, and quality. Designed to transform every corner
-            of your home into a luxury space.
+            elegance, comfort, and quality.
           </p>
           <div className="hero-buttons">
             <a href="#shop" className="primary">
@@ -144,9 +163,6 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <p className="info-extra">
-          ✅ Free Worldwide Shipping | ✅ 24/7 Customer Support | ✅ 10-Year Warranty on All Products
-        </p>
       </section>
 
       {/* Discount Section */}
@@ -155,8 +171,14 @@ const Home = () => {
           <span>🔥 Big Season Sale – Flat 50% OFF on Modern Furniture 🔥</span>
           <span>🔥 Limited Time – Extra 10% OFF for New Customers 🔥</span>
           <span>🔥 Free Delivery on Orders Above $100 🔥</span>
+          <span>🔥 Big Season Sale – Flat 50% OFF on Modern Furniture 🔥</span>
+          <span>🔥 Limited Time – Extra 10% OFF for New Customers 🔥</span>
+          <span>🔥 Free Delivery on Orders Above $100 🔥</span>
+          <span>🔥 Big Season Sale – Flat 50% OFF on Modern Furniture 🔥</span>
+          <span>🔥 Limited Time – Extra 10% OFF for New Customers 🔥</span>
+          <span>🔥 Free Delivery on Orders Above $100 🔥</span>
         </div>
-        <div className="discount-timer">
+         <div className="discount-timer">
           {timerComponents.length ? (
             <>
               <h4>⏳ Hurry! Offer Ends In:</h4>
@@ -189,12 +211,10 @@ const Home = () => {
               <ul>
                 <li>Premium quality materials with lasting durability</li>
                 <li>Elegant designs that fit every lifestyle</li>
-                <li>Eco-friendly wood & fabrics</li>
               </ul>
               <ul>
                 <li>Affordable luxury for your dream home</li>
                 <li>Furniture crafted for comfort and style</li>
-                <li>Designed by award-winning designers</li>
               </ul>
             </div>
             <button className="interior-btn">Explore</button>
@@ -203,50 +223,40 @@ const Home = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="featured-section" id="shop">
-        <h2 className="featured-title">Featured Products</h2>
-        <p className="featured-subtitle">
-          Handpicked favorites to style your dream home
-        </p>
-        <div className="featured-container">
-          <div className="product-details">
-            <img src={product4} alt="Modern Chair" />
-            <h3 className="product-name">Modern Armchair</h3>
-            <p className="product-price">$120</p>
-            <p className="product-desc">Ergonomic design with premium cushioning.</p>
-            <p className="product-stock">In Stock</p>
-            <div className="product-rating"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div>
-            <button className="product-btn">View Details</button>
-          </div>
-          <div className="product-details">
-            <img src={product5} alt="Cabinet" />
-            <h3 className="product-name">Dining Table</h3>
-            <p className="product-price">$250</p>
-            <p className="product-desc">Solid oak wood with a modern finish.</p>
-            <p className="product-stock">Limited Stock</p>
-            <div className="product-rating"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div>
-            <button className="product-btn">View Details</button>
-          </div>
-          <div className="product-details">
-            <img src={product6} alt="Dresser" />
-            <h3 className="product-name">Mid-Century Dresser</h3>
-            <p className="product-price">$300</p>
-            <p className="product-desc">Vintage-inspired with spacious drawers.</p>
-            <p className="product-stock">In Stock</p>
-            <div className="product-rating"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div>
-            <button className="product-btn">View Details</button>
-          </div>
-          <div className="product-details">
-            <img src={product7} alt="Luxury Sofa" />
-            <h3 className="product-name">Luxury Sofa</h3>
-            <p className="product-price">$450</p>
-            <p className="product-desc">Comfort redefined with premium fabric.</p>
-            <p className="product-stock">Pre-Order</p>
-            <div className="product-rating"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div>
-            <button className="product-btn">View Details</button>
-          </div>
-        </div>
-      </section>
+    {/* Featured Products Section */}
+<section className="featured-section" id="shop">
+  <h2 className="featured-title">Featured Products</h2>
+  <p className="featured-subtitle">
+    Handpicked favorites to style your dream home
+  </p>
+  <div className="featured-container">
+    <div className="product-details">
+      <img src={product4} alt="Modern Chair" />
+      <h3 className="product-name">Modern Armchair</h3>
+      <p className="product-price">$120</p>
+      <button className="product-btn">View Details</button>
+    </div>
+    <div className="product-details">
+      <img src={product5} alt="Cabinet" />
+      <h3 className="product-name">Dining Table</h3>
+      <p className="product-price">$250</p>
+      <button className="product-btn">View Details</button>
+    </div>
+    <div className="product-details">
+      <img src={product6} alt="Dresser" />
+      <h3 className="product-name">Mid-Century Dresser</h3>
+      <p className="product-price">$300</p>
+      <button className="product-btn">View Details</button>
+    </div>
+    <div className="product-details">
+      <img src={product7} alt="Luxury Sofa" />
+      <h3 className="product-name">Luxury Sofa</h3>
+      <p className="product-price">$450</p>
+      <button className="product-btn">View Details</button>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
