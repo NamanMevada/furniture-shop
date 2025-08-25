@@ -560,3 +560,145 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(185, 147, 90, 0.4);
 }
+/* ===============================
+   ✨ Extra Modern Enhancements ✨
+================================*/
+
+/* Info Card Hover Effects */
+.info-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+}
+
+.info-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+  transform: scale(1.2) rotate(6deg);
+  color: #b9935a;
+}
+
+/* Running Discount Glow */
+.running-discount {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #b9935a, #fff, #b9935a) 1;
+  border-image-slice: 1;
+  position: relative;
+}
+
+.running-discount .marquee {
+  text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+/* Discount Timer Glow */
+.timer-value {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Interior Section Enhancements */
+.interior-text h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.interior-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #b9935a;
+  border-radius: 2px;
+}
+
+.interior-btn {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.interior-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Featured Product Modern Hover */
+.product-details {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-details::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(185,147,90,0.15), rgba(0,0,0,0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.product-details:hover::before {
+  opacity: 1;
+}
+
+.product-name,
+.product-price,
+.product-btn {
+  position: relative;
+  z-index: 2;
+}
+
+.product-details img {
+  border-radius: 18px 18px 0 0;
+}
+
+/* Animate product card entry */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.featured-container .product-details {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.featured-container .product-details:nth-child(1) { animation-delay: 0.2s; }
+.featured-container .product-details:nth-child(2) { animation-delay: 0.4s; }
+.featured-container .product-details:nth-child(3) { animation-delay: 0.6s; }
+.featured-container .product-details:nth-child(4) { animation-delay: 0.8s; }
+
+/* Responsive Touch-Ups */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .interior-text h2 {
+    font-size: 1.8rem;
+  }
+  .featured-title {
+    font-size: 2rem;
+  }
+}
