@@ -33,8 +33,8 @@ function Navbar() {
         <li><Link to="/">HOME</Link></li>
         <li><Link to="/shop">SHOP</Link></li>
         <li><Link to="/product/1">PRODUCT</Link></li> 
-        <li><a href="#">SERVICE</a></li>
-        <li><a href="#">BLOG</a></li>
+        <li><Link to="/service">SERVICE</Link></li>
+        <li><Link to="/blog">BLOG</Link></li>
       </ul>
 
       <div className="navbar-icons">

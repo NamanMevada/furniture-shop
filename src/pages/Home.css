@@ -564,28 +564,6 @@
 ================================*/
 
 /* Info Card Hover Effects */
-.info-card {
-  padding: 20px;
-  border-radius: 12px;
-  background: #fff;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-.info-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.1);
-  background: linear-gradient(135deg, #ffffff, #f1f1f1);
-}
-
-.info-icon {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.info-card:hover .info-icon {
-  transform: scale(1.2) rotate(6deg);
-  color: #b9935a;
-}
 
 /* Running Discount Glow */
 .running-discount {
@@ -614,16 +592,7 @@
   display: inline-block;
 }
 
-.interior-text h2::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: #b9935a;
-  border-radius: 2px;
-}
+
 
 .interior-btn {
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
