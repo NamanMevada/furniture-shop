@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { FaSearch, FaUser, FaRegHeart, FaShoppingBag, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch, FaUser, FaRegHeart, FaShoppingBag, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import mylogo from "../assets/living-room.png";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+
+  const categories = [
+    "Living Room",
+    "Bedroom",
+    "Office Furniture",
+    "Outdoor",
+    "Kitchen Furniture",
+    "Storage"
+  ];
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -16,8 +27,23 @@ function Navbar() {
     setSearchOpen(!searchOpen);
   };
 
+  const toggleCategories = () => {
+    setCategoriesOpen(!categoriesOpen);
+  };
+
+  const toggleMobileCategories = () => {
+    setMobileCategoriesOpen(!mobileCategoriesOpen);
+  };
+
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+    setMobileCategoriesOpen(false);
+  };
+
+  const handleCategoryClick = () => {
+    setCategoriesOpen(false);
+    setMobileCategoriesOpen(false);
+    closeMobileMenu();
   };
 
   return (
@@ -39,9 +65,27 @@ function Navbar() {
         </div>
 
         {/* Categories - Hidden on mobile */}
-        <div className="categories desktop-only">
-          <FaBars className="menu-icon" />
-          <span>ALL CATEGORIES</span>
+        <div className="categories-wrapper desktop-only">
+          <div className="categories" onClick={toggleCategories}>
+            <FaBars className="menu-icon" />
+            <span>ALL CATEGORIES</span>
+            <FaChevronDown className={`chevron ${categoriesOpen ? 'rotate' : ''}`} />
+          </div>
+          
+          {/* Desktop Dropdown */}
+          {categoriesOpen && (
+            <div className="categories-dropdown">
+              <ul>
+                {categories.map((category, index) => (
+                  <li key={index}>
+                    <Link to={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setCategoriesOpen(false)}>
+                      {category}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Search Bar - Desktop */}
@@ -80,6 +124,11 @@ function Navbar() {
         </div>
       </nav>
 
+      {/* Categories Dropdown Overlay for Desktop */}
+      {categoriesOpen && (
+        <div className="categories-backdrop" onClick={() => setCategoriesOpen(false)}></div>
+      )}
+
       {/* Mobile Search Bar */}
       {searchOpen && (
         <div className="mobile-search-bar">
@@ -109,10 +158,26 @@ function Navbar() {
         </ul>
 
         <div className="mobile-menu-bottom">
-          <button className="mobile-categories">
+          <button className="mobile-categories" onClick={toggleMobileCategories}>
             <FaBars />
             <span>ALL CATEGORIES</span>
+            <FaChevronDown className={`chevron ${mobileCategoriesOpen ? 'rotate' : ''}`} />
           </button>
+          
+          {/* Mobile Categories Dropdown */}
+          {mobileCategoriesOpen && (
+            <div className="mobile-categories-dropdown">
+              <ul>
+                {categories.map((category, index) => (
+                  <li key={index}>
+                    <Link to={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`} onClick={handleCategoryClick}>
+                      {category}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           
           <div className="mobile-menu-icons">
             <Link to="/account" onClick={closeMobileMenu}>
